@@ -1,0 +1,24 @@
+---
+title: "semana 4"
+author: "Carole Flores Torres"
+format: html
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Como descargar un archivo en formato CSV del repositorio GIBHUB
+
+1.  primero nos dirigimos al repositorio de GIBHUB
+
+2.  Para descargar el archivo nos dirigimos a la carpeta DATA donde encontraremos varios archivos CSV, hacemos click en el archivo CSV que usaremos
+
+3.  Luego, GitHub te mostrará una vista previa de los datos. Descargue el archivo haciendo click en el ícono de descarga.
+
+4.  Por ultimo, el archivo se descargará y almacenará en nuestra carpeta de descargas.
+
+```{r}
+1 + 1
+```
