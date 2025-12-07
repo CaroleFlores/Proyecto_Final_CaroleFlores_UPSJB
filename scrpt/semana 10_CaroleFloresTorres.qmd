@@ -1,0 +1,41 @@
+---
+title: "semana 10"
+author: "Carole Flores Torres"
+format: html
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Calculamos las medidas de tendencia central (media arimetica, mediana, moda)
+
+1.  Abrimos e importamos el archivo en Rstudio.
+
+2.  luego, copiamos los datos script de la data
+
+3.  importamos el archivo con el que trabajaremos
+
+```{r}
+data<- read_csv("C:/Users/carol/Downloads/diabetes.csv")
+View(diabetes)
+```
+
+4.  luego, realizamos las medida arimetica de nuestro archivo. para eso primero escogemos los datos con los que queremos trabajar, en este caso trabajaremos con "historial_diabetes"
+
+```{r}
+mean(data$historial_diabetes)
+```
+
+5.  para hacer la mediana de los datos que escoguimos para trabajar y realizamos lo siguiente
+
+```{r}
+median(data$historial_diabetes)
+```
+
+6.  ahora, para finalizar, realizamos la moda con los mismos datos que seleccionamos
+
+```{r}
+mode_historial_diabetes<-names(sort(table(data$historial_diabetes),decreasing = TRUE))
+```
