@@ -1,0 +1,91 @@
+---
+title: "semana 14"
+author: "Carole Flores Torres"
+format: html
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Realiza el analisis de regresion, analisis univariado, multivariado
+
+**REGRESION**
+
+```{r}
+set.seed(123)
+n <- 120
+
+IMC <- rnorm(n, 27, 4)
+Edad <- rnorm(n, 45, 10)
+Actividad <- rnorm(n, 3, 1)
+# horas por semana
+
+# Modelo real para generar datos
+PAS <- 80 + 1.2*IMC + 0.6*Edad - 2.5*Actividad + rnorm(n, 0, 10)
+
+datos <- data.frame(IMC, Edad, Actividad, PAS)
+head(datos)
+
+#4.2 Ajustar modelo múltiple
+modelo <- lm(PAS ~ IMC + Edad + Actividad, data = datos)
+summary(modelo)
+
+#4.4 Comparar modelos
+#Esto indica si el modelo multivariado mejora la predicción.
+anova(modelo, modelo)
+
+#4.5 Diagnóstico del modelo (muy importante)
+par(mfrow=c(2,2))
+plot(modelo_multi)
+```
+
+**UNIVARIADA**
+
+```{r}
+set.seed(123)
+n <- 100
+IMC <- rnorm(n, 27, 4)
+PAS <- 90 + 1.5*IMC + rnorm(n, 0, 8)
+
+datos <- data.frame(IMC, PAS)
+head(datos)
+```
+
+2.  ajustar
+
+```{r}
+modelo_uni <- lm(PAS ~ IMC, data = datos)
+summary(modelo_uni)
+```
+
+3.  grafico
+
+```{r}
+plot(datos$IMC, datos$PAS, main="PAS vs IMC", xlab="IMC", ylab="PAS")
+abline(modelo_uni, lwd=2)
+```
+
+**MULTIVARIADA**
+
+```{r}
+set.seed(123)
+n <- 120
+
+IMC <- rnorm(n, 27, 4)
+Edad <- rnorm(n, 45, 10)
+Actividad <- rnorm(n, 3, 1)
+# horas por semana
+
+# Modelo real para generar datos
+PAS <- 80 + 1.2*IMC + 0.6*Edad - 2.5*Actividad + rnorm(n, 0, 10)
+
+datos <- data.frame(IMC, Edad, Actividad, PAS)
+head(datos)
+```
+
+```{r}
+modelo_multi <- lm(PAS ~ IMC + Edad + Actividad, data = datos)
+summary(modelo_multi)
+```
