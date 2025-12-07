@@ -1,0 +1,73 @@
+---
+title: "semana 12"
+author: "Carole Flores Torres"
+format: html
+editor: visual
+---
+
+## Calcular las medidas de dispersion (varianza, desviacion estandar, rango, rango intercuartilico) y de Posicion (cuartiles), script para visualizar las primeras 6 filas y para poder visualizar un resumen de dichas medidas
+
+## A. Calcular las medidas de dispersion (varianza, desviacion estandar, rango, rango intercuartilico)
+
+1.  abrimos e importamos el archivo en Rstudio y copiamos los datos scipt
+
+2.  importamos el archico con el que vamos a trabajar
+
+```{r}
+data<- read_csv("C:/Users/carol/Downloads/diabetes.csv")
+View(diabetes)
+```
+
+1.  calculamos las medidas de dispersion
+
+2.  empezamos con la varianza y escogemos el dato con el que vamos a trabajar, en este caso usaremos la "edad"
+
+```{r}
+var(data$edad)
+```
+
+3.  ahora realizamos la deviacion estandar con el dato que escogimos
+
+```{r}
+sd(data$edad,na.rm=TRUE)
+```
+
+4.  Para el rango hacemos lo siguiente
+
+```{r}
+range(data$edad,na.rm = TRUE)
+```
+
+5.  Para calcular el rango intercuartilico hacemos lo siguiente.
+
+```{r}
+IQR(data$edad,na.rm = TRUE)
+```
+
+## B. Calcular las medidas de Posicion (cuartiles)
+
+1.  para calcular las medidas de posicion hacemos lo siguiente y usamos el dato con el que hemos estado trabajando
+
+```{r}
+quantile(data$edad,probs = c(0.75,0.50,0.75,0.90),na.rm = TRUE)
+```
+
+## C. script para visualizar las primeras 6 filas y para poder visualizar un resumen de dichas medidas
+
+1.  para ver las primeras 6 filas de nuestra data hacemos lo siguiente
+
+```{r}
+head(data)
+```
+
+2.  ahora para ver un resumen de todas las variables hacemos lo siguiente
+
+```{r}
+summary(data)
+```
+
+3.  ahora para hacer un resumen de las medidas de pisicion hacemos
+
+```{r}
+summary(data$edad)
+```
